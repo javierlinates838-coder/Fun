@@ -71,7 +71,11 @@ export function ContactForm() {
           tabIndex={-1}
           role="alert"
           className="error-summary"
+          aria-labelledby={`${baseId}-error-title`}
         >
+          <p id={`${baseId}-error-title`} className="error-title">
+            There is a problem
+          </p>
           <p>The note needs a few details before it can open in your email app.</p>
           <ul>
             {errorEntries.map((entry) => (

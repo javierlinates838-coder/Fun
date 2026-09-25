@@ -10,8 +10,8 @@ export default function Icon() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#161411",
-          color: "#F4EFE6",
+          background: "#100E0C",
+          color: "#F3EEE6",
           display: "flex",
           alignItems: "center",
           justifyContent: "center",

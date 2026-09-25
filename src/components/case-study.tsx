@@ -1,64 +1,63 @@
 import Link from "next/link";
 import type { Project } from "@/content/projects";
 import { Icon } from "@/components/icon";
-import { ProjectMedia } from "@/components/project-media";
+import { BrowserFrame, PhoneFrame } from "@/components/browser-frame";
 
 export function CaseStudy({ project }: { project: Project }) {
-  const [primary, ...rest] = project.images;
-  const phone = rest.find((image) => image.label === "Phone");
-  const supporting = rest.filter((image) => image !== phone);
+  const desktop = project.images.find((image) => image.label === "Desktop") ?? project.images[0];
+  const phone = project.images.find((image) => image.label === "Phone");
+  const supporting = project.images.filter((image) => image !== desktop && image !== phone);
 
   return (
-    <article className="case">
-      <header className="wrap case-header">
-        <p className="eyebrow">
-          <Link href="/#work" className="back-link">
-            <Icon name="back" />
-            <span>All work</span>
-          </Link>
-        </p>
-        <h1>{project.name}</h1>
-        <p className="lede">{project.summary}</p>
-        <dl className="case-meta">
-          <div>
-            <dt>Client</dt>
-            <dd>{project.client}</dd>
-          </div>
-          <div>
-            <dt>Category</dt>
-            <dd>{project.category}</dd>
-          </div>
-          <div>
-            <dt>Industry</dt>
-            <dd>{project.industry}</dd>
-          </div>
-        </dl>
-        {project.liveUrl ? (
-          <a
-            className="button"
-            href={project.liveUrl}
-            target="_blank"
-            rel="noreferrer"
-          >
-            Visit the live site
-            <Icon name="external" />
-            <span className="sr-only"> (opens in a new tab)</span>
-          </a>
-        ) : null}
+    <article className={`case case--${project.slug}`}>
+      <header className="case-header">
+        <div className="wrap case-intro">
+          <p className="eyebrow">
+            <Link href={`/#${project.slug}`} className="back-link">
+              <Icon name="back" />
+              <span>All work</span>
+            </Link>
+          </p>
+          <p className="mono">{project.index}</p>
+          <h1>{project.name}</h1>
+          <p className="lede">{project.summary}</p>
+          <dl className="meta-grid">
+            <div>
+              <dt>Client</dt>
+              <dd>{project.client}</dd>
+            </div>
+            <div>
+              <dt>Industry</dt>
+              <dd>{project.industry}</dd>
+            </div>
+            <div>
+              <dt>Category</dt>
+              <dd>{project.category}</dd>
+            </div>
+          </dl>
+          {project.liveUrl ? (
+            <a className="button" href={project.liveUrl} target="_blank" rel="noreferrer">
+              Visit the live site
+              <Icon name="external" />
+              <span className="sr-only"> (opens in a new tab)</span>
+            </a>
+          ) : null}
+        </div>
+        <div className="wrap case-stage">
+          <BrowserFrame
+            image={desktop}
+            url={project.liveUrl ?? project.name}
+            liveUrl={project.liveUrl}
+            priority
+            sizes="(min-width: 1100px) 70vw, 100vw"
+          />
+          {phone ? (
+            <div className="phone-float phone-float--case">
+              <PhoneFrame image={phone} sizes="220px" />
+            </div>
+          ) : null}
+        </div>
       </header>
-
-      <div className="wrap case-hero-media">
-        <figure>
-          <div className="mat">
-            <ProjectMedia
-              image={primary}
-              priority
-              sizes="(min-width: 1200px) 1152px, 100vw"
-            />
-          </div>
-          <figcaption>{primary.label}</figcaption>
-        </figure>
-      </div>
 
       <div className="wrap case-body">
         <section>
@@ -78,21 +77,21 @@ export function CaseStudy({ project }: { project: Project }) {
           </p>
         </section>
         <section>
-          <h2>Solution</h2>
+          <h2>What I built</h2>
           <p>{project.caseStudy.solution}</p>
         </section>
         <section>
-          <h2>Design approach</h2>
+          <h2>Design</h2>
           <p>{project.caseStudy.design}</p>
         </section>
         <section>
-          <h2>Development approach</h2>
+          <h2>Development</h2>
           <p>{project.caseStudy.development}</p>
-          <p className="tech-line">{project.technologies.join(", ")}</p>
+          <p className="tech-line">{project.technologies.join(" · ")}</p>
         </section>
         <section>
           <h2>Important features</h2>
-          <ul className="plain-list">
+          <ul className="feature-list">
             {project.caseStudy.features.map((feature) => (
               <li key={feature}>{feature}</li>
             ))}
@@ -103,40 +102,20 @@ export function CaseStudy({ project }: { project: Project }) {
           <p>{project.caseStudy.result}</p>
         </section>
 
-        {supporting.length > 0 || phone ? (
-          <section>
+        {supporting.length > 0 ? (
+          <section className="case-shots">
             <h2>Screenshots</h2>
-            <div
-              className={
-                supporting.length > 0 ? "shot-layout" : "shot-layout shot-layout--single"
-              }
-            >
-              {supporting.length > 0 ? (
-                <div className="shot-stack">
-                  {supporting.map((image) => (
-                    <figure key={image.src}>
-                      <div className="mat">
-                        <ProjectMedia
-                          image={image}
-                          sizes="(min-width: 960px) 720px, 100vw"
-                        />
-                      </div>
-                      <figcaption>{image.label}</figcaption>
-                    </figure>
-                  ))}
-                </div>
-              ) : null}
-              {phone ? (
-                <figure className="shot-phone">
-                  <div className="mat">
-                    <ProjectMedia
-                      image={phone}
-                      sizes="(min-width: 960px) 320px, 70vw"
-                    />
-                  </div>
-                  <figcaption>{phone.label}</figcaption>
+            <div className="shot-layout">
+              {supporting.map((image) => (
+                <figure key={image.src}>
+                  <BrowserFrame
+                    image={image}
+                    url={project.liveUrl ?? project.name}
+                    sizes="(min-width: 960px) 720px, 100vw"
+                  />
+                  <figcaption>{image.label}</figcaption>
                 </figure>
-              ) : null}
+              ))}
             </div>
           </section>
         ) : null}

@@ -1,21 +1,29 @@
 import type { Metadata } from "next";
-import { Archivo, Playfair_Display } from "next/font/google";
+import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const heading = Playfair_Display({
+const display = Fraunces({
   subsets: ["latin"],
-  variable: "--font-heading",
   display: "swap",
+  variable: "--font-display",
+  axes: ["SOFT", "WONK", "opsz"],
 });
 
-const body = Archivo({
+const body = Public_Sans({
   subsets: ["latin"],
-  variable: "--font-body",
   display: "swap",
+  variable: "--font-body",
+});
+
+const mono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["400", "500"],
+  display: "swap",
+  variable: "--font-mono",
 });
 
 const siteUrl = getSiteUrl();
@@ -59,7 +67,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${heading.variable} ${body.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
       <body>
         <script
           type="application/ld+json"

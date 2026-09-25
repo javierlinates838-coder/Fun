@@ -2,10 +2,8 @@
 
 Follow `MASTER.md`.
 
-The opening is an ink stage. From 960px the sentence sits on the left and the explanation plus both CTAs sit on the right, aligned to the end of the headline. Below 960px they stack. The first project screenshot is the visual under that lockup, wider than the text column. Its caption names the project.
+The opening is one viewport. The name, one existing sentence, and two buttons sit beside a browser frame of the first live site. A phone view breaks the frame. A project jump leads into the chapter.
 
-Primary CTA opens that project's case study. Secondary CTA jumps to contact.
+Each project is a full chapter with its own ground color. Facts stay in document order: client, industry, live site, what was built, the unpublished problem, design, development, features, and the case-study link. The frame sticks on wide screens and leads on small screens.
 
-The next project sits on the paper field as a split. Do not add a decorative illustration beside the headline.
-
-Services and process are indexed rows (number, name, sentence), not cards.
+About, services, and process are one ink sequence. Services are a numbered list. Process is a path. Contact fills the last viewport.

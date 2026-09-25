@@ -25,7 +25,7 @@ The form opens the visitor’s email app addressed to the inbox in `site.ts`. It
 
 ## Design system
 
-`design-system/personal-portfolio/MASTER.md` is the visual source of truth, taken from the UI UX Pro Max portfolio guidance (Minimalism & Swiss Style, monochrome with one blue accent, Space Grotesk and Archivo).
+`design-system/personal-portfolio/MASTER.md` is the visual source of truth. The site is a dark, chapter-based studio portfolio: Fraunces for names, Public Sans for reading, and the live work as the composition.
 
 ## Develop
 

@@ -1,6 +1,7 @@
 "use client";
 
 import {
+  ArrowDown,
   ArrowLeft,
   ArrowRight,
   ArrowSquareOut,
@@ -10,6 +11,7 @@ import {
 
 const icons = {
   arrow: ArrowRight,
+  down: ArrowDown,
   back: ArrowLeft,
   external: ArrowSquareOut,
   menu: List,
