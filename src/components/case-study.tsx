@@ -31,11 +31,6 @@ export function CaseStudy({ project }: { project: Project }) {
               <span className="sr-only"> (opens in a new tab)</span>
             </a>
           </div>
-          <p className="piece-summary">{project.summary}</p>
-          <p className="piece-role">
-            <span>My role</span>
-            {project.role.join(" · ")}
-          </p>
         </div>
       </header>
 
@@ -84,6 +79,11 @@ export function CaseStudy({ project }: { project: Project }) {
       ) : null}
 
       <div className="wrap case-notes">
+        <p className="piece-summary">{project.summary}</p>
+        <p className="piece-role">
+          <span>My role</span>
+          {project.role.join(" · ")}
+        </p>
         <ul className="highlights">
           {project.highlights.map((item) => (
             <li key={item}>{item}</li>
