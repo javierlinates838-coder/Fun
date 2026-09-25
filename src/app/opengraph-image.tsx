@@ -11,22 +11,22 @@ export default function OpenGraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#FAFAFA",
-          color: "#09090B",
+          background: "#161411",
+          color: "#F4EFE6",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
           padding: "72px",
         }}
       >
-        <div style={{ fontSize: 28, letterSpacing: 4, color: "#475569" }}>
+        <div style={{ fontSize: 28, letterSpacing: 4, color: "#C8BEB0" }}>
           SKIDAGGER
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
           <div style={{ fontSize: 76, lineHeight: 0.96, letterSpacing: -2, maxWidth: 860 }}>
             I design and build websites.
           </div>
-          <div style={{ fontSize: 28, color: "#3F3F46", maxWidth: 760 }}>
+          <div style={{ fontSize: 28, color: "#C8BEB0", maxWidth: 760 }}>
             Web design and development for businesses and products.
           </div>
         </div>

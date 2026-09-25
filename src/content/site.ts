@@ -22,7 +22,7 @@ export const site = {
     titleEnd: "websites.",
     summary:
       "For businesses that need a site to explain the work, and for products that need an interface people can actually use.",
-    primaryCta: "View selected work",
+    primaryCta: "View the project",
     secondaryCta: "Start a project",
   },
   about: {

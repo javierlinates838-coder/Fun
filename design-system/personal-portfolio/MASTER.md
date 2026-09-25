@@ -23,50 +23,50 @@ The retained direction is the Portfolio/Personal product record plus Minimalism 
 
 ## Color
 
-| Role | Token | Value |
-|------|--------|-------|
-| Primary | `--color-primary` | `#18181B` |
-| On primary | `--color-on-primary` | `#FFFFFF` |
-| Secondary | `--color-secondary` | `#3F3F46` |
-| Accent | `--color-accent` | `#2563EB` |
-| Background | `--color-background` | `#FAFAFA` |
-| Foreground | `--color-foreground` | `#09090B` |
-| Card | `--color-card` | `#FFFFFF` |
-| Muted | `--color-muted` | `#E8ECF0` |
-| Muted foreground | `--color-muted-foreground` | `#475569` |
-| Border | `--color-border` | `#E4E4E7` |
-| Destructive | `--color-destructive` | `#DC2626` |
-| Ring | `--color-ring` | `#18181B` |
+Revision: the first live pass used zinc and blue (`#FAFAFA`, `#18181B`, `#2563EB`) with Space Grotesk. It read as a plain document. The current field is warm paper and ink, with a dark opening and a dark close. Blue and glass are still out.
 
-Accent is for text links and the email hover. Primary buttons use near-black so the work, not a colored chrome, stays forward. Checked pairs: white on `#2563EB` is 5.17:1, `#2563EB` on `#FAFAFA` is 4.95:1, `#475569` on `#FAFAFA` is 7.26:1.
+| Role | Token | Paper field | Ink field |
+|------|--------|-------------|-----------|
+| Paper | `--color-paper` | `#F4EFE6` | — |
+| Ink | `--color-ink` | `#161411` | — |
+| Primary button | `--color-primary` | `#161411` | `#F4EFE6` |
+| On primary | `--color-on-primary` | `#F4EFE6` | `#161411` |
+| Secondary text | `--color-secondary` | `#4A453F` | `#C8BEB0` |
+| Accent | `--color-accent` | `#7A332A` | `#E8A79F` |
+| Background | `--color-background` | `#F4EFE6` | `#161411` |
+| Foreground | `--color-foreground` | `#161411` | `#F4EFE6` |
+| Muted foreground | `--color-muted-foreground` | `#5C564E` | `#C8BEB0` |
+| Input border | `--color-input-border` | `#8A7F72` | `#8A8175` |
 
-Light field only. A second dark theme is not part of this version; screenshots sit on the neutral ground the portfolio landing pattern asks for.
+Checked pairs: `#161411` on `#F4EFE6` is 16.3:1, `#4A453F` on `#F4EFE6` is 8.3:1, `#5C564E` on `#F4EFE6` is 6.3:1, `#7A332A` on `#F4EFE6` is 7.9:1, `#C8BEB0` on `#161411` is 10.2:1, `#E8A79F` on `#161411` is 9.3:1.
+
+Ink surfaces are the header, the opening stage, the contact band, the footer, and the mobile menu. The middle of the page stays paper. This is not a second theme toggle.
 
 ## Typography
 
-- Headings: Space Grotesk (the pairing notes assign it to distinctive headers).
-- Body: Archivo.
+- Headings, wordmark, email, and the mobile menu: Playfair Display, weight 500. Not 900, and not on buttons or index numbers.
+- Body, buttons, eyebrows, and indexes: Archivo.
 - Loaded with `next/font`, not a remote stylesheet.
-- Headings use weight 500, not 700. Display size is large enough to lead the page and small enough to stay a sentence.
+- The headline tops out near 5.25rem. It leads the opening and stays a sentence.
 
 ## Spacing
 
-4 / 8 rhythm. Page gutter grows from 20px to 32px to 48px. Section padding grows from 80px to 104px to 128px. Content width 72rem. Long copy measure 40rem.
+4 / 8 rhythm. Page gutter grows from 20px to 32px to 48px. Section padding grows from 80px to 104px to 128px. Text column 76rem. The opening screenshot may run wider, up to 96rem. Long copy measure 40rem.
 
 ## Shape and depth
 
-Control radius 2px. No shadow system. Project frames use a 1px border so a light screenshot does not dissolve into the page. No glass, no gradient washes, no icon badges.
+Control radius 2px. No shadow system. The opening screenshot sits directly on the ink field, wider than the text column. Later screenshots sit in an ink mat, not a 1px hairline. No glass, no gradient washes, no icon badges.
 
 ## Layout
 
-- Home: hero, selected work, about, services, process, contact.
-- Work is editorial: the first project is a full-width frame; the second reverses into a split. They are not a repeated card grid.
+- Home: dark opening (headline plus the first live project), the next project on paper, about, services, process, dark contact.
+- Work is editorial: the first project is the opening visual; the second reverses into a split. They are not a repeated card grid.
 - Case study: recorded facts, explicit gaps, then screenshots.
 - Navigation: Work, About, Services, Contact. Sticky solid header. Full-screen dialog on small screens.
 
 ## Motion
 
-One 12px / 400ms reveal on the hero, only when `prefers-reduced-motion` is not set. Link icons move 4px on hover. Nothing is hidden from the document by default.
+One 12px / 400ms reveal on the hero, only when `prefers-reduced-motion` is not set. Linked screenshots scale to 1.025 over 700ms on hover, same condition. Link icons move 4px on hover. Nothing is hidden from the document by default.
 
 ## Interaction rules
 

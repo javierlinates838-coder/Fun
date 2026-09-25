@@ -4,18 +4,13 @@ import { Icon } from "@/components/icon";
 import { ProjectMedia } from "@/components/project-media";
 
 export function SelectedWork() {
+  const rest = projects.slice(1);
+
   return (
-    <section id="work" className="section" aria-labelledby="work-heading">
+    <section className="section companion" aria-labelledby="companion-heading">
       <div className="wrap">
-        <header className="section-heading">
-          <p className="eyebrow">Work</p>
-          <div className="section-heading-row">
-            <h2 id="work-heading">Selected work</h2>
-            <p>Two sites that are live now.</p>
-          </div>
-        </header>
         <div className="work-list">
-          {projects.map((project, index) => {
+          {rest.map((project) => {
             const image = project.images[0];
             const caseHref = `/work/${project.slug}`;
             return (
@@ -28,21 +23,23 @@ export function SelectedWork() {
                   className="work-media"
                   aria-label={`View the ${project.name} project`}
                 >
-                  <ProjectMedia
-                    image={image}
-                    priority={index === 0}
-                    sizes={
-                      project.layout === "feature"
-                        ? "(min-width: 1200px) 1152px, 100vw"
-                        : "(min-width: 960px) 640px, 100vw"
-                    }
-                  />
+                  <div className="mat">
+                    <ProjectMedia
+                      image={image}
+                      priority={false}
+                      sizes={
+                        project.layout === "feature"
+                          ? "(min-width: 1200px) 1152px, 100vw"
+                          : "(min-width: 960px) 640px, 100vw"
+                      }
+                    />
+                  </div>
                 </Link>
                 <div className="work-copy">
                   <p className="work-index">{project.index}</p>
-                  <h3>
+                  <h2 id="companion-heading">
                     <Link href={caseHref}>{project.name}</Link>
-                  </h3>
+                  </h2>
                   <p className="work-meta">
                     <span>{project.client}</span>
                     <span aria-hidden="true">·</span>

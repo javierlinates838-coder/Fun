@@ -49,11 +49,13 @@ export function CaseStudy({ project }: { project: Project }) {
 
       <div className="wrap case-hero-media">
         <figure>
-          <ProjectMedia
-            image={primary}
-            priority
-            sizes="(min-width: 1200px) 1152px, 100vw"
-          />
+          <div className="mat">
+            <ProjectMedia
+              image={primary}
+              priority
+              sizes="(min-width: 1200px) 1152px, 100vw"
+            />
+          </div>
           <figcaption>{primary.label}</figcaption>
         </figure>
       </div>
@@ -113,10 +115,12 @@ export function CaseStudy({ project }: { project: Project }) {
                 <div className="shot-stack">
                   {supporting.map((image) => (
                     <figure key={image.src}>
-                      <ProjectMedia
-                        image={image}
-                        sizes="(min-width: 960px) 720px, 100vw"
-                      />
+                      <div className="mat">
+                        <ProjectMedia
+                          image={image}
+                          sizes="(min-width: 960px) 720px, 100vw"
+                        />
+                      </div>
                       <figcaption>{image.label}</figcaption>
                     </figure>
                   ))}
@@ -124,10 +128,12 @@ export function CaseStudy({ project }: { project: Project }) {
               ) : null}
               {phone ? (
                 <figure className="shot-phone">
-                  <ProjectMedia
-                    image={phone}
-                    sizes="(min-width: 960px) 320px, 70vw"
-                  />
+                  <div className="mat">
+                    <ProjectMedia
+                      image={phone}
+                      sizes="(min-width: 960px) 320px, 70vw"
+                    />
+                  </div>
                   <figcaption>{phone.label}</figcaption>
                 </figure>
               ) : null}

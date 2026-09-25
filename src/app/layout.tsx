@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Archivo, Space_Grotesk } from "next/font/google";
+import { Archivo, Playfair_Display } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const heading = Space_Grotesk({
+const heading = Playfair_Display({
   subsets: ["latin"],
   variable: "--font-heading",
   display: "swap",
