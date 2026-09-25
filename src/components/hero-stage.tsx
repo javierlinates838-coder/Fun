@@ -52,11 +52,6 @@ export function HeroStage() {
             </Link>
           </div>
         </div>
-        <a className="hero-jump" href={`#${project.slug}`}>
-          <span className="mono">{project.index}</span>
-          <span>{project.name}</span>
-          <Icon name="down" />
-        </a>
         <div
           className="hero-visual"
           ref={visualRef}
@@ -64,21 +59,32 @@ export function HeroStage() {
           onPointerLeave={onLeave}
         >
           <div className="parallax parallax-frame">
+            <div className="frame-mat" aria-hidden="true" />
             <BrowserFrame
               image={desktop}
               url={project.liveUrl ?? project.name}
               liveUrl={project.liveUrl}
               caseHref={caseHref}
               priority
-              sizes="(min-width: 960px) 70vw, 100vw"
+              sizes="(min-width: 960px) 72vw, 100vw"
             />
+            {phone ? (
+              <div className="parallax parallax-phone">
+                <PhoneFrame image={phone} caseHref={caseHref} sizes="190px" />
+              </div>
+            ) : null}
           </div>
-          {phone ? (
-            <div className="parallax parallax-phone">
-              <PhoneFrame image={phone} caseHref={caseHref} sizes="190px" />
-            </div>
-          ) : null}
         </div>
+        <nav className="work-rail" aria-label="Selected work">
+          <p className="mono">Selected work</p>
+          {projects.map((item) => (
+            <a key={item.slug} href={`#${item.slug}`}>
+              <span className="mono">{item.index}</span>
+              <span>{item.name}</span>
+              {item.slug === project.slug ? <Icon name="down" /> : null}
+            </a>
+          ))}
+        </nav>
       </div>
     </section>
   );

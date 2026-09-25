@@ -4,7 +4,7 @@ import { ContactForm } from "@/components/contact-form";
 export function About() {
   const [lead, ...rest] = site.about.paragraphs;
   return (
-    <section id="about" className="band" data-chapter="About" aria-labelledby="about-heading">
+    <section id="about" className="band band--paper" data-chapter="About" aria-labelledby="about-heading">
       <div className="wrap about-grid">
         <header>
           <p className="eyebrow">About</p>
@@ -38,7 +38,7 @@ export function About() {
 
 export function Services() {
   return (
-    <section id="services" className="band" data-chapter="Services" aria-labelledby="services-heading">
+    <section id="services" className="band band--paper" data-chapter="Services" aria-labelledby="services-heading">
       <div className="wrap">
         <header className="section-heading">
           <p className="eyebrow">Services</p>
@@ -61,7 +61,7 @@ export function Services() {
 
 export function Process() {
   return (
-    <section className="band" data-chapter="Process" aria-labelledby="process-heading">
+    <section className="band band--paper" data-chapter="Process" aria-labelledby="process-heading">
       <div className="wrap">
         <header className="section-heading">
           <p className="eyebrow">Process</p>

@@ -28,7 +28,9 @@ Style search also returned OLED neon, cyberpunk, Bauhaus hard-shadow, neumorphis
 
 **Motion:** 640ms entrance on the opening only. Pointer shift of about 12px / 18px on the opening frame and phone, fine pointer only. SRL chapter crossfades the desktop shot into project photography as the chapter scrolls. PC chapter lets the phone drift 28px. Hover scale on a linked shot is 1.02 over 700ms. `prefers-reduced-motion` removes parallax, crossfade, drift, and smooth scroll, and shows the second SRL image in place.
 
-**Layout:** The opening is one viewport: identity and two real buttons, the live site in a browser frame, a phone breaking the frame, and a project jump. Chapters keep the frame sticky beside the facts. About, services, and process are typographic sequences, not cards. Contact is a full closing viewport.
+**Layout:** The opening is one viewport: a large name, one sentence, two buttons, and the first live site in a 3:2 frame. An oxblood mat sits behind the frame. A phone breaks the frame on wide screens. A selected-work rail leads into the rooms.
+
+Each project is a color room. The homepage keeps a short label: name, summary, frame, four facts, and three features. The essay stays on the case study. SRL layers a detail plate and a phone on oxblood. PC sets the phone beside the frame on graphite. About, services, and process are a bone-paper sequence. Contact is the ink close.
 
 ## Interaction
 

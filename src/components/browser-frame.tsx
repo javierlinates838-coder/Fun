@@ -84,7 +84,7 @@ export function PhoneFrame({
     <div className="phone">
       <div className="phone-screen">
         {caseHref ? (
-          <Link href={caseHref} className="screen-link" aria-label={`${image.alt}. View the project.`}>
+          <Link href={caseHref} className="screen-link" aria-label={`${image.alt.replace(/\.$/, "")}. View the project.`}>
             <Image src={image.src} alt="" fill sizes={sizes} className="shot shot-a" />
           </Link>
         ) : (
