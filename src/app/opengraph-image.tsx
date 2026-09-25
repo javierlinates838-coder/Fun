@@ -11,8 +11,8 @@ export default function OpenGraphImage() {
         style={{
           width: "100%",
           height: "100%",
-          background: "#100E0C",
-          color: "#F3EEE6",
+          background: "#F3F0EA",
+          color: "#1C1915",
           display: "flex",
           flexDirection: "column",
           justifyContent: "space-between",
@@ -20,12 +20,12 @@ export default function OpenGraphImage() {
         }}
       >
         <div style={{ display: "flex", justifyContent: "space-between", width: "100%" }}>
-          <div style={{ fontSize: 28, letterSpacing: 2, color: "#CFC6BA" }}>SKIDAGGER</div>
-          <div style={{ fontSize: 28, color: "#F0CFC6" }}>01 — 02</div>
+          <div style={{ fontSize: 28, letterSpacing: 1 }}>SKIDAGGER</div>
+          <div style={{ fontSize: 28, color: "#9C3D22" }}>Websites</div>
         </div>
         <div style={{ display: "flex", flexDirection: "column", gap: 18 }}>
           <div style={{ fontSize: 84, lineHeight: 0.95, letterSpacing: -2 }}>Web design and development.</div>
-          <div style={{ width: 180, height: 8, background: "#3C1816" }} />
+          <div style={{ width: 180, height: 8, background: "#9C3D22" }} />
         </div>
       </div>
     ),

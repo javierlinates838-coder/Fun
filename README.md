@@ -10,7 +10,7 @@ A personal portfolio for website design and development. The page is meant to sh
 
 The public name is the account display name **Skidagger**. Change `name` in `src/content/site.ts` if clients should see something else.
 
-Anything the repository does not actually contain is marked **Needs your input** on the page. That includes a biography, a location, a portrait, the original brief for each project, and any result you want to claim. Do not add numbers that were not measured.
+If a fact is not known, leave it off the public page. Do not add placeholder notes, metrics, or implementation commentary.
 
 Projects listed today:
 
@@ -25,7 +25,7 @@ The form opens the visitor’s email app addressed to the inbox in `site.ts`. It
 
 ## Design system
 
-`design-system/personal-portfolio/MASTER.md` is the visual source of truth. The site is a dark, chapter-based studio portfolio: Fraunces for names, Public Sans for reading, and the live work as the composition.
+`design-system/personal-portfolio/MASTER.md` is the visual source of truth. The page is a light portfolio: Outfit and Work Sans, stone and ink, and the live websites as the composition.
 
 ## Develop
 

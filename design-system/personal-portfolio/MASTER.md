@@ -1,45 +1,31 @@
-# Personal Portfolio — Design System
+# Skidagger — design system
 
-Verified against UI UX Pro Max, then rewritten. The previous Swiss / warm-paper pass and the generator’s first matches were not used.
+The public site is a freelance portfolio. A business owner should see the websites, understand what was built, and know how to start a project.
 
-## Rejected directions
+## Audit of the previous page
 
-Two `--design-system` passes were run and set aside:
+The previous direction was an internal case study. It published repository notes, missing-information placeholders, and implementation commentary. That copy does not belong on a client-facing site and has been removed. The dark chapter layout, browser-frame screenshots, and long fact columns made the work look like documentation.
 
-- Premium portfolio, variance 7, motion 7: **Liquid Glass**, gold accent, Cormorant + Montserrat, `back.out` stagger. Glass, jewelry-gold, and overshoot easing read as a template. The user asked for a studio portfolio, not an Apple-system material or a luxury shop.
-- Creative studio portfolio, variance 8: **Brutalism**, zinc + blue, Archivo + Space Grotesk, hard corners, weight 700. That is the earlier safe page, plus anti-design. It was already rejected.
+## Generator results that were not used
 
-Style search also returned OLED neon, cyberpunk, Bauhaus hard-shadow, neumorphism, and Playfair/Inter editorial pairs. Those were not taken. Playfair was the previous typeface.
+`--design-system` for “freelance web designer creative developer portfolio” returned **Brutalism**, zinc plus blue, Archivo and Space Grotesk, instant transitions, and `back.out` stagger. That is a generic high-contrast template. It was rejected.
 
-## Chosen direction
+A narrower retry, “creative studio portfolio imagery,” returned **Motion-Driven** with pure black and white and the same type pair. Pure black and white is the generic portfolio the brief rules out. Archivo / Space Grotesk and bounce easing were not used.
 
-**Pattern:** Scroll-Triggered Storytelling. Intro, then one chapter per real project, then a practice sequence, then a contact climax. A progress mark in the header and the current chapter name in the nav. The story is still readable with motion off: no scroll-jacking, full DOM order, chapters show their final images.
+Also set aside from domain search: portfolio card grids, bento, pink agency palettes, Poppins, and novelty display faces.
 
-**Style:** Motion-driven portfolio behavior (one entrance, pointer depth on the opening frame, a scroll crossfade inside a project) on an editorial composition. Not a card grid, not glass, not a bento.
+## What was kept
 
-**Color:** Ink `#100E0C`, bone `#F3EEE6`, dim `#CFC6BA`. Chapter 1 (SRL Painting) sits on oxblood `#3C1816`. Chapter 2 (PC Flip Pro) sits on graphite `#15191E`. Signal `#F0CFC6` is for links and the scroll mark. Checked pairs are all above 9:1 for text. Input borders `#9A9086` on ink are above 3:1.
+- **Style:** Motion-Driven. One entrance, image hover over about 480ms, a short reveal as the next project enters. `prefers-reduced-motion` shows the final state. Easing is `cubic-bezier(0.22, 1, 0.36, 1)`, not bounce.
+- **Landing principle:** visuals first. The screenshot is the page. Copy is a short label.
+- **Avoid:** heavy text and a weak image.
 
-**Type:**
+## Chosen system
 
-- Names and the closing line: Fraunces, weight about 520, soft/wonk only on those names. Not weight 900.
-- Reading, navigation, buttons: Public Sans.
-- Indexes, URLs, section labels: IBM Plex Mono.
-- Loaded with `next/font`.
+**Color.** Warm stone `#F3F0EA`, ink `#1C1915`, muted `#5E584F`, clay `#9C3D22`. The project screenshots carry the color. Checked text pairs are above 5.9:1. Input borders `#6D675F` on stone are above 3:1.
 
-**Motion:** 640ms entrance on the opening only. Pointer shift of about 12px / 18px on the opening frame and phone, fine pointer only. SRL chapter crossfades the desktop shot into project photography as the chapter scrolls. PC chapter lets the phone drift 28px. Hover scale on a linked shot is 1.02 over 700ms. `prefers-reduced-motion` removes parallax, crossfade, drift, and smooth scroll, and shows the second SRL image in place.
+**Type.** Outfit for names, navigation, and buttons. Work Sans for reading. Loaded with `next/font`. No serif costume.
 
-**Layout:** The opening is one viewport: a large name, one sentence, two buttons, and the first live site in a 3:2 frame. An oxblood mat sits behind the frame. A phone breaks the frame on wide screens. A selected-work rail leads into the rooms.
+**Projects.** The first screen is the website. SRL Painting is full-bleed under a short masthead, with the phone and a selected section layered on the image. PC Flip Pro sits beside a short column of client copy. No browser chrome. Unknown facts are omitted.
 
-Each project is a color room. The homepage keeps a short label: name, summary, frame, four facts, and three features. The essay stays on the case study. SRL layers a detail plate and a phone on oxblood. PC sets the phone beside the frame on graphite. About, services, and process are a bone-paper sequence. Contact is the ink close.
-
-## Interaction
-
-- Nav: Work, About, Services, Contact, plus a Start a project button. Mobile menu lists those links and both projects.
-- Touch targets at least 44px. Primary buttons are 52px.
-- Focus ring is bone on ink.
-- Form keeps inline errors, a summary, and focus on that summary.
-- Icons are Phosphor, regular weight, `aria-hidden` beside text.
-
-## Anti-patterns in force
-
-No fake metrics, reviews, emoji icons, glass, traffic-light browser chrome, bounce easing, or repeated project cards.
+**Copy.** Client language only. Unknown briefs, metrics, and build notes are omitted, not labeled.

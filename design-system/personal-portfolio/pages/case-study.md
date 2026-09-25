@@ -1,5 +1,5 @@
-# Case study
+# Project page
 
 Follow `MASTER.md`.
 
-The header uses the project’s chapter color. The desktop view sits in a browser frame, with the phone overlapping. Body copy stays inside 40rem on the ink field. Extra screenshots use the same frame. Problem, objective, and measured results stay empty of invented claims.
+A project page opens with the name, one sentence, and the role, then a full-width view of the live site with the phone layered on it. A selected section follows when one exists. Highlights and a link to start a project close the page. Missing source material is left out.

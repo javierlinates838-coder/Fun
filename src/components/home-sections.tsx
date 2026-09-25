@@ -1,34 +1,26 @@
+import Link from "next/link";
 import { site } from "@/content/site";
 import { ContactForm } from "@/components/contact-form";
+import { Icon } from "@/components/icon";
 
-export function About() {
-  const [lead, ...rest] = site.about.paragraphs;
+export function Intro() {
   return (
-    <section id="about" className="band band--paper" data-chapter="About" aria-labelledby="about-heading">
-      <div className="wrap about-grid">
-        <header>
-          <p className="eyebrow">About</p>
-          <h2 id="about-heading" className="about-lead">
-            {lead}
-          </h2>
-        </header>
-        <div className="about-copy">
-          {rest.map((paragraph) => (
-            <p key={paragraph}>{paragraph}</p>
-          ))}
-          <h3>Focus</h3>
-          <ul className="plain-list">
-            {site.about.focus.map((item) => (
-              <li key={item}>{item}</li>
-            ))}
-          </ul>
-          <h3>Approach</h3>
-          <p>{site.about.approach}</p>
-          <h3>Who I work with</h3>
-          <p>{site.about.clients}</p>
-          <div className="open-note">
-            <h3>Needs your input</h3>
-            <p>{site.about.openNote}</p>
+    <section className="intro" aria-labelledby="hero-heading">
+      <div className="wrap intro-grid">
+        <div className="intro-identity">
+          <p className="eyebrow">{site.intro.eyebrow}</p>
+          <h1 id="hero-heading">{site.name}</h1>
+        </div>
+        <div className="intro-aside">
+          <p className="intro-line">{site.intro.line}</p>
+          <div className="cta-row">
+            <a className="button" href="#work">
+              {site.intro.primaryCta}
+              <Icon name="arrow" />
+            </a>
+            <Link href="/#contact" className="button button-ghost">
+              {site.intro.secondaryCta}
+            </Link>
           </div>
         </div>
       </div>
@@ -38,17 +30,16 @@ export function About() {
 
 export function Services() {
   return (
-    <section id="services" className="band band--paper" data-chapter="Services" aria-labelledby="services-heading">
+    <section id="services" className="band" aria-labelledby="services-heading">
       <div className="wrap">
-        <header className="section-heading">
-          <p className="eyebrow">Services</p>
+        <header className="band-head">
           <h2 id="services-heading">{site.services.heading}</h2>
           <p>{site.services.intro}</p>
         </header>
-        <ol className="service-list">
+        <ol className="offer-list">
           {site.services.items.map((item, index) => (
             <li key={item.title}>
-              <span className="mono">{String(index + 1).padStart(2, "0")}</span>
+              <span>{String(index + 1).padStart(2, "0")}</span>
               <h3>{item.title}</h3>
               <p>{item.text}</p>
             </li>
@@ -59,24 +50,16 @@ export function Services() {
   );
 }
 
-export function Process() {
+export function About() {
   return (
-    <section className="band band--paper" data-chapter="Process" aria-labelledby="process-heading">
-      <div className="wrap">
-        <header className="section-heading">
-          <p className="eyebrow">Process</p>
-          <h2 id="process-heading">{site.process.heading}</h2>
-          <p>{site.process.intro}</p>
-        </header>
-        <ol className="process-list">
-          {site.process.steps.map((step, index) => (
-            <li key={step.title}>
-              <span className="mono">{String(index + 1).padStart(2, "0")}</span>
-              <h3>{step.title}</h3>
-              <p>{step.text}</p>
-            </li>
+    <section id="about" className="band band-about" aria-labelledby="about-heading">
+      <div className="wrap about-grid">
+        <h2 id="about-heading">{site.about.heading}</h2>
+        <div>
+          {site.about.paragraphs.map((paragraph) => (
+            <p key={paragraph}>{paragraph}</p>
           ))}
-        </ol>
+        </div>
       </div>
     </section>
   );
@@ -84,12 +67,11 @@ export function Process() {
 
 export function Contact() {
   return (
-    <section id="contact" className="finale" data-chapter="Contact" aria-labelledby="contact-heading">
-      <div className="wrap finale-grid">
-        <header className="finale-copy">
-          <p className="eyebrow">Contact</p>
+    <section id="contact" className="contact" aria-labelledby="contact-heading">
+      <div className="wrap contact-grid">
+        <header>
           <h2 id="contact-heading">{site.contact.heading}</h2>
-          <p className="lede">{site.contact.summary}</p>
+          <p>{site.contact.summary}</p>
           <a className="email-link" href={`mailto:${site.email}`}>
             {site.email}
           </a>

@@ -1,29 +1,21 @@
 import type { Metadata } from "next";
-import { Fraunces, IBM_Plex_Mono, Public_Sans } from "next/font/google";
+import { Outfit, Work_Sans } from "next/font/google";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
 import { site } from "@/content/site";
 import { getSiteUrl } from "@/lib/site-url";
 import "./globals.css";
 
-const display = Fraunces({
+const display = Outfit({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-display",
-  axes: ["SOFT", "WONK", "opsz"],
 });
 
-const body = Public_Sans({
+const body = Work_Sans({
   subsets: ["latin"],
   display: "swap",
   variable: "--font-body",
-});
-
-const mono = IBM_Plex_Mono({
-  subsets: ["latin"],
-  weight: ["400", "500"],
-  display: "swap",
-  variable: "--font-mono",
 });
 
 const siteUrl = getSiteUrl();
@@ -67,7 +59,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en" className={`${display.variable} ${body.variable} ${mono.variable}`}>
+    <html lang="en" className={`${display.variable} ${body.variable}`}>
       <body>
         <script
           type="application/ld+json"

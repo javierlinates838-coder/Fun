@@ -1,15 +1,15 @@
 "use client";
 
 import Link from "next/link";
-import { useEffect, useId, useRef, useState } from "react";
+import { useEffect, useId, useRef } from "react";
 import { site } from "@/content/site";
 import { projects } from "@/content/projects";
 import { Icon } from "@/components/icon";
 
 const links = [
   { href: "/#work", label: "Work" },
-  { href: "/#about", label: "About" },
   { href: "/#services", label: "Services" },
+  { href: "/#about", label: "About" },
   { href: "/#contact", label: "Contact" },
 ];
 
@@ -17,7 +17,6 @@ export function SiteHeader() {
   const dialogRef = useRef<HTMLDialogElement>(null);
   const progressRef = useRef<HTMLDivElement>(null);
   const titleId = useId();
-  const [status, setStatus] = useState("");
 
   useEffect(() => {
     const dialog = dialogRef.current;
@@ -28,21 +27,6 @@ export function SiteHeader() {
     };
     dialog.addEventListener("cancel", onCancel);
     return () => dialog.removeEventListener("cancel", onCancel);
-  }, []);
-
-  useEffect(() => {
-    const nodes = document.querySelectorAll<HTMLElement>("[data-chapter]");
-    const observer = new IntersectionObserver(
-      (entries) => {
-        const visible = entries
-          .filter((entry) => entry.isIntersecting)
-          .sort((a, b) => b.intersectionRatio - a.intersectionRatio)[0];
-        if (visible) setStatus(visible.target.getAttribute("data-chapter") ?? "");
-      },
-      { rootMargin: "-28% 0px -48% 0px", threshold: [0.15, 0.4, 0.7] },
-    );
-    nodes.forEach((node) => observer.observe(node));
-    return () => observer.disconnect();
   }, []);
 
   useEffect(() => {
@@ -84,9 +68,6 @@ export function SiteHeader() {
         <Link href="/" className="wordmark">
           {site.name}
         </Link>
-        <p className="nav-status" aria-live="polite">
-          {status}
-        </p>
         <nav className="nav-desktop" aria-label="Primary">
           <ul>
             {links.map((link) => (
@@ -97,14 +78,9 @@ export function SiteHeader() {
           </ul>
         </nav>
         <Link href="/#contact" className="button button-nav">
-          {site.hero.secondaryCta}
+          {site.intro.secondaryCta}
         </Link>
-        <button
-          type="button"
-          className="menu-button"
-          aria-haspopup="dialog"
-          onClick={openMenu}
-        >
+        <button type="button" className="menu-button" aria-haspopup="dialog" onClick={openMenu}>
           <Icon name="menu" />
           <span>Menu</span>
         </button>
@@ -134,7 +110,7 @@ export function SiteHeader() {
             {projects.map((project) => (
               <li key={project.slug}>
                 <Link href={`/#${project.slug}`} onClick={closeMenu}>
-                  <span className="mono">{project.index}</span>
+                  <span>{project.index}</span>
                   {project.name}
                 </Link>
               </li>
@@ -143,7 +119,7 @@ export function SiteHeader() {
         </nav>
         <div className="menu-close-cta">
           <Link href="/#contact" className="button" onClick={closeMenu}>
-            {site.hero.secondaryCta}
+            {site.intro.secondaryCta}
             <Icon name="arrow" />
           </Link>
         </div>
